@@ -38,7 +38,7 @@ class WordSegmentor:
             data.append(word)
         dataDict=Counter(data)
         sorted_data_dict = sorted(dataDict.items(), key=lambda x: x[1], reverse=True)
-        with open(cfg.word_frequency_file,'w') as fw:
+        with open(cfg.word_frequency_file,'w', encoding='utf-8') as fw:
             import json
             json.dump(sorted_data_dict, fw, ensure_ascii=False, indent=4)
 

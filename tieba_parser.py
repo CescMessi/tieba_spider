@@ -6,7 +6,7 @@ def parser(all_dict):
     name_list = []
     titles = ''
     # 写入标题文件
-    with open(cfg.titles_file, 'w') as tf:
+    with open(cfg.titles_file, 'w', encoding='utf-8') as tf:
         for content in all_dict.values():
             title = content['title']
             tf.write(f'{title}\n')
@@ -18,10 +18,10 @@ def parser(all_dict):
     sorted_num_dict = sorted(name_dict.items(), key=lambda x: x[1], reverse=True)
     sorted_content_dict = sorted(all_dict.values(), key=lambda x: int(x['replyNum']), reverse=True)
 
-    with open(cfg.user_post_num_file, 'w') as uf:
+    with open(cfg.user_post_num_file, 'w', encoding='utf-8') as uf:
         json.dump(sorted_num_dict, uf, ensure_ascii=False, indent=4)
 
-    with open(cfg.sort_replay_file, 'w') as rf:
+    with open(cfg.sort_replay_file, 'w', encoding='utf-8') as rf:
         json.dump(sorted_content_dict, rf, ensure_ascii=False, indent=4)
 
     return titles    

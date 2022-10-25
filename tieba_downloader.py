@@ -66,7 +66,7 @@ class TiebaDownloader:
         return infomations
 
     def write_jsons(self, all_dict):
-        with open(cfg.all_result_file, 'w') as f:
+        with open(cfg.all_result_file, 'w', encoding='utf-8') as f:
             json.dump(all_dict, f, ensure_ascii=False, indent=4)
 
     def __call__(self):
